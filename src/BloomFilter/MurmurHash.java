@@ -1,5 +1,17 @@
 package BloomFilter;
 
+/**
+ * Murmur hash function. 
+ * This code is simply a C++ -> Java translation
+ * from MurmurHash2.cpp from: 
+ * https://sites.google.com/site/murmurhash/
+ * <p>
+ * All credit for the MurmurHash algorithm goes 
+ * to its creator Austin Appleby. 
+ * <p>
+ * MurmurHash was chosen for its speed and
+ * performance. 
+ */
 public class MurmurHash {
 	public static final int M = 0x5bd1e995; 
 	public static final int R = 24; 
@@ -33,6 +45,13 @@ public class MurmurHash {
 		return h; 
 	}
 	
+	/**
+	 * 4 byte array to Integer 
+	 * 
+	 * @param data  There must be 4 bytes from start. 
+	 * @param start Starting index position. 
+	 * @return
+	 */
 	public static int constructIntFromBytes(byte[] data, int start) { 
 		int value = 0; 
 		
@@ -44,6 +63,12 @@ public class MurmurHash {
 		return value; 
 	}
 	
+	/**
+	 * Integer to 4 byte array. 
+	 * 
+	 * @param data
+	 * @return
+	 */
 	public static byte[] constructBytesFromInt(int data) { 
 		byte[] bytes = new byte[4]; 
 		
